@@ -18,6 +18,6 @@ void print_env(char **env);
 int check_env(char *arg, char ** env);
 void ffree(char **str);
 void check_interact(void);
-void mult_strcat(char *str,char *str1, char *str2, char *str3);
+void mult_strcat(char *str,char *str1);
 
 #endif

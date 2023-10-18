@@ -27,11 +27,10 @@ void ffree(char **str)
  * 
  * Return: void
  */
-void mult_strcat(char *str,char *str1, char *str2, char *str3)
+void mult_strcat(char *str,char *str1)
 {
   strcat(str, str1);
-  strcat(str, str2);
-  strcat(str, str3);
+
 }
 
   

@@ -35,7 +35,7 @@ int main(int ac, char **av, char **env) {
     else if (childpid == 0)
     {
       execve(str, argv, env);
-      mult_strcat(err, av[0], ": 1:",argv[0]);
+      mult_strcat(err, av[0]);
       perror(err);
       exit(1);
     }
