@@ -33,7 +33,6 @@ ffree(argv);
 break;
 }
 mult_strcat(str, argv[0]);
-printf("/%s/", str);
 childpid = fork();
 if (childpid < 0)
 perror("\n");
