@@ -15,9 +15,9 @@ int toklen(char *str);
 char **tokenize(char *str);
 void remove_newline(char *str);
 void print_env(char **env);
-int check_env(char *arg, char ** env);
+int check_env(char *arg, char **env);
 void ffree(char **str);
 void check_interact(void);
-void mult_strcat(char *str,char *str1);
+void mult_strcat(char *str, char *str1);
 
 #endif

@@ -6,12 +6,14 @@
  *
  * Return: number of tokens
  */
-int toklen(char *str) {
+int toklen(char *str)
+{
   char *token;
   int toknum = 0;
 
   token = strtok(str, " ");
-  while (token != NULL) {
+  while (token != NULL)
+  {
     toknum++;
     token = strtok(NULL, " ");
   }
@@ -25,7 +27,8 @@ int toklen(char *str) {
  * Return: array of words
  */
 
-char **tokenize(char *str) {
+char **tokenize(char *str)
+{
   char *token;
   char *str_cpy = strdup(str);
   char **words;
@@ -34,11 +37,13 @@ char **tokenize(char *str) {
 
   len = toklen(buffer);
   words = malloc(sizeof(char *) * (len));
-  if (words == NULL) {
+  if (words == NULL)
+  {
     return (NULL);
   }
   token = strtok(str_cpy, " ");
-  while (token != NULL) {
+  while (token != NULL)
+  {
     words[i] = strdup(token);
     i++;
     token = strtok(NULL, " ");
@@ -54,20 +59,24 @@ char **tokenize(char *str) {
  *
  * Return: void
  */
-void remove_newline(char *str) {
+void remove_newline(char *str)
+{
   char *dst = str;
   int len = strlen(str);
-  if (str[len - 1] == '\n') {
+  if (str[len - 1] == '\n')
+  {
     str[len - 1] = '\0';
   }
-  while (*str == ' ') {
+  while (*str == ' ')
+  {
     str++;
   }
-  if (str != dst) {
-    while (*str) {
+  if (str != dst)
+  {
+    while (*str)
+    {
       *dst++ = *str++;
     }
     *dst = '\0';
   }
-
 }
