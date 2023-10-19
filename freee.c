@@ -6,12 +6,10 @@
  *
  * Return: void
  */
-void ffree(char **str)
-{
+void ffree(char **str) {
   int i = 0;
-  
-  while (str[i] != NULL)
-  {
+
+  while (str[i] != NULL) {
     free(str[i]);
     i++;
   }
@@ -24,13 +22,10 @@ void ffree(char **str)
  * @str1: string to be concatenated
  * @str2: string to be concatenated
  * @str3: string to be concatenated
- * 
+ *
  * Return: void
  */
-void mult_strcat(char *str,char *str1)
+void mult_strcat(char *str, char *str1)
 {
-  strcat(str, str1);
-
+  strcat(str, str1); 
 }
-
-  
