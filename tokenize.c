@@ -65,6 +65,7 @@ void remove_newline(char *str) {
     if (*src != ' ') {
       *dst++ = *src;
     }
+    else{break;}
     src++;
   }
   *dst = '\0';
