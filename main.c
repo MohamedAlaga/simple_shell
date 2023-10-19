@@ -27,13 +27,14 @@ int main(int ac, char **av, char **env) {
       ffree(argv);
       break;
     }
-    strcat(str, argv[0]);
+    mult_strcat(str, argv[0]);
+    printf("/%s/",str);
     childpid = fork();
     if (childpid < 0)
       perror("\n");
     else if (childpid == 0) {
       execve(str, argv, env);
-      mult_strcat(err, av[0]);
+      strcat(err, av[0]);
       perror(err);
       exit(1);
     } else {
