@@ -55,7 +55,6 @@ char **tokenize(char *str) {
  * Return: void
  */
 void remove_newline(char *str) {
-  char *src = str;
   char *dst = str;
   int len = strlen(str);
   while (*str == ' ') {
