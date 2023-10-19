@@ -8,18 +8,16 @@
  */
 int toklen(char *str)
 {
-  char *token;
-  int toknum = 0;
-
-  token = strtok(str, " ");
-  while (token != NULL)
-  {
-    toknum++;
-    token = strtok(NULL, " ");
-  }
-  return (toknum);
+char *token;
+int toknum = 0;
+token = strtok(str, " ");
+while (token != NULL)
+{
+toknum++;
+token = strtok(NULL, " ");
 }
-
+return (toknum);
+}
 /**
  * tokenize - split input into array of words
  * @str: string to be tokenized
@@ -29,28 +27,27 @@ int toklen(char *str)
 
 char **tokenize(char *str)
 {
-  char *token;
-  char *str_cpy = strdup(str);
-  char **words;
-  int len, i = 0;
-  char *buffer = str;
-
-  len = toklen(buffer);
-  words = malloc(sizeof(char *) * (len));
-  if (words == NULL)
-  {
-    return (NULL);
-  }
-  token = strtok(str_cpy, " ");
-  while (token != NULL)
-  {
-    words[i] = strdup(token);
-    i++;
-    token = strtok(NULL, " ");
-  }
-  free(token);
-  free(str_cpy);
-  return (words);
+char *token;
+char *str_cpy = strdup(str);
+char **words;
+int len, i = 0;
+char *buffer = str;
+len = toklen(buffer);
+words = malloc(sizeof(char *) * (len));
+if (words == NULL)
+{
+return (NULL);
+}
+token = strtok(str_cpy, " ");
+while (token != NULL)
+{
+words[i] = strdup(token);
+i++;
+token = strtok(NULL, " ");
+}
+free(token);
+free(str_cpy);
+return (words);
 }
 
 /**
@@ -61,22 +58,22 @@ char **tokenize(char *str)
  */
 void remove_newline(char *str)
 {
-  char *dst = str;
-  int len = strlen(str);
-  if (str[len - 1] == '\n')
-  {
-    str[len - 1] = '\0';
-  }
-  while (*str == ' ')
-  {
-    str++;
-  }
-  if (str != dst)
-  {
-    while (*str)
-    {
-      *dst++ = *str++;
-    }
-    *dst = '\0';
-  }
+char *dst = str;
+int len = strlen(str);
+if (str[len - 1] == '\n')
+{
+str[len - 1] = '\0';
+}
+while (*str == ' ')
+{
+str++;
+}
+if (str != dst)
+{
+while (*str)
+{
+ *dst++ = *str++;
+}
+*dst = '\0';
+}
 }

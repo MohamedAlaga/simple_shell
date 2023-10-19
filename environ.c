@@ -8,14 +8,13 @@
  */
 void print_env(char **env)
 {
-  int i = 0;
-  while (env[i] != NULL)
-  {
-    printf("%s\n", env[i]);
-    i++;
-  }
+int i = 0;
+while (env[i] != NULL)
+{
+printf("%s\n", env[i]);
+i++;
 }
-
+}
 /**
  * check_env - checks env
  * @arg: argument
@@ -24,12 +23,12 @@ void print_env(char **env)
  */
 int check_env(char *arg, char **env)
 {
-  if (!strcmp(arg, "env"))
-  {
-    print_env(env);
-    return (1);
-  }
-  return (0);
+if (!strcmp(arg, "env"))
+{
+print_env(env);
+return (1);
+}
+return (0);
 }
 
 /**
@@ -39,8 +38,7 @@ int check_env(char *arg, char **env)
  */
 void check_interact(void)
 {
-  int interactive_mode = isatty(fileno(stdin));
-
-  if (interactive_mode)
-    printf("#cisfun$ ");
+int interactive_mode = isatty(fileno(stdin));
+if (interactive_mode)
+printf("#cisfun$ ");
 }
