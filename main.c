@@ -10,8 +10,6 @@ int main(int ac, char **av, char **env)
 {
 size_t buffer_size = MAX_SIZE;
 char *line = NULL, *str, *err = malloc(sizeof(char) * MAX_WIDTH), **argv;
-int status, errno;
-pid_t childpid;
 (void)ac;
 first:
 check_interact();

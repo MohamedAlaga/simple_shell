@@ -9,7 +9,7 @@
  */
 void execute(char *str, char **argv, char **env, char **av)
 {
-int status, errno;
+int status;
 char *err = malloc(sizeof(char) * MAX_WIDTH);
 pid_t childpid;
 childpid = fork();
