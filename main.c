@@ -9,7 +9,7 @@
 int main(int ac, char **av, char **env)
 {
 size_t buffer_size = MAX_SIZE;
-char *line = NULL, *str, *err = malloc(sizeof(char) * MAX_WIDTH), **argv;
+char *line = NULL, *str,  **argv;
 (void)ac;
 first:
 check_interact();
@@ -34,6 +34,5 @@ free(argv);
 argv = NULL;
 }
 free(line);
-free(err);
 return (0);
 }
