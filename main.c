@@ -1,16 +1,16 @@
 #include "shell.h"
 /**
- * errno - general variable for errors
- */
-int errno;
-/**
  * main - the Main fucntion of shell
+ * @ac: number of arguments
+ * @av: arguments
+ * @env: environment
+ * Return: 0 on success
  */
 int main(int ac, char **av, char **env)
 {
 size_t buffer_size = MAX_SIZE;
 char *line = NULL, *str, *err = malloc(sizeof(char) * MAX_WIDTH), **argv;
-int status;
+int status,errno;
 pid_t childpid;
 (void)ac;
 first:
@@ -53,5 +53,5 @@ argv = NULL;
 }
 free(line);
 free(err);
-return 0;
+return (0);
 }

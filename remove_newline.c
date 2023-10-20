@@ -5,19 +5,18 @@
  *
  * Return: void
  */
-void remove_newline(char *str) {
+void remove_newline(char *str)
+{
 char *dst = str;
 int len = strlen(str);
-if (str[len - 1] == '\n') {
+if (str[len - 1] == '\n')
 str[len - 1] = '\0';
-}
-while (*str == ' ') {
+while (*str == ' ')
 str++;
-}
-if (str != dst) {
-while (*str) {
+if (str != dst)
+{
+while (*str)
 *dst++ = *str++;
-}
 *dst = '\0';
 }
 }
