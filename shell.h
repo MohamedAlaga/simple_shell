@@ -15,4 +15,5 @@ void remove_newline(char *str);
 char **tokenize(char *str);
 int toklen(char *str);
 void mult_strcat(char *str, char *str1);
+void execute(char *str, char **argv, char **env, char **av);
 #endif
