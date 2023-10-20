@@ -33,20 +33,25 @@ ffree(argv);
 break;
 }
 mult_strcat(str, argv[0]);
+if (access(str, X_OK) == 0) 
+{
 childpid = fork();
 if (childpid < 0)
 perror("\n");
-else if (childpid == 0)
-{
+else if (childpid == 0) {
 execve(str, argv, env);
-strcat(err, av[0]);
-perror(err);
-exit(1);
-}
+} 
 else
 {
 wait(&status);
 check_interact();
+}
+}
+else
+{
+strcat(err, av[0]);
+perror(err);
+exit(1);
 }
 free(line);
 line = NULL;
