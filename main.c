@@ -37,5 +37,5 @@ argv = NULL;
 }
 free(line);
 free(err);
-return 0;
+return (0);
 }
