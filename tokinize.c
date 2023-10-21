@@ -9,25 +9,21 @@
 char **tokenize(char *str)
 {
 char *token;
-char *str_cpy = strdup(str);
 char **words;
-int len, i = 0;
-char *buffer = str;
-len = toklen(buffer);
-words = malloc(sizeof(char *) * (len + 1));
+int i = 0;
+
+words = malloc(sizeof(char *)  * MAX_WIDTH);
 if (words == NULL)
 {
 return (NULL);
 }
-token = strtok(str_cpy, " ");
+token = strtok(str, " ");
 while (token != NULL)
 {
-words[i] = strdup(token);
-i++;
+words[i++] = token;
 token = strtok(NULL, " ");
 }
 words[i] = NULL;
 free(token);
-free(str_cpy);
 return (words);
 }

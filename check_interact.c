@@ -10,3 +10,20 @@ int interactive_mode = isatty(fileno(stdin));
 if (interactive_mode)
 printf("#cisfun$ ");
 }
+
+/**
+ * check_fail - checks if failed
+ * @len: length of the string
+ *
+ * Return: 1 if failed, 0 if success
+ */
+int check_fail(ssize_t len)
+{
+if (len <= 0)
+{
+if (isatty(STDIN_FILENO))
+printf("$ ");
+return (1);  
+}
+return (0);
+}

@@ -1,5 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
+
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,10 +11,13 @@
 #include <unistd.h>
 #define MAX_SIZE 1024
 #define MAX_WIDTH 100
+
 void check_interact(void);
-void remove_newline(char *str);
 char **tokenize(char *str);
-int toklen(char *str);
 void mult_strcat(char *str, char *str1);
-void execute(char *str, char **argv, char **env, char **av);
+int execute(char **line, char *path, char **av);
+void print_env(char **env);
+int check_env(char *arg, char ** env);
+int check_fail(ssize_t len);
+
 #endif

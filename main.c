@@ -6,33 +6,42 @@
  * @env: environment variables
  * Return: 0 on success
  */
-int main(int ac, char **av, char **env)
-{
+int main(int ac, char **av, char **env) {
 size_t buffer_size = MAX_SIZE;
-char *line = NULL, *str,  **argv;
+ssize_t len = 0, x = 0;
+char *line = NULL, **argv = NULL,
+*plhold = (getenv("PATH")) ? getenv("PATH") : "", *path = strdup(plhold);
+
 (void)ac;
-first:
 check_interact();
-while (getline(&line, &buffer_size, stdin) != -1)
-{
-str = malloc(sizeof(char) * MAX_WIDTH);
-remove_newline(line);
-if (strlen(line) == 0)
-goto first;
-argv = tokenize(line);
-if (!strcmp(argv[0], "exit"))
-{
-free(argv);
-free(str);
+while (1) {
+len = getline(&line, &buffer_size, stdin);
+if(check_fail(len))
 break;
+line[len - 1] = '\0';
+if (strlen(line) == 0)
+{
+check_interact();
+continue;
+}    
+argv = tokenize(line);
+if (check_env(argv[0], env)) {
+free(argv);
+check_interact();
+continue;
 }
-mult_strcat(str, argv[0]);
-execute(str, argv, env, av);
+if (!strcmp(argv[0], "exit"))
+break;
+free(path);
+path = strdup(plhold);
+x = execute(argv, path, av);
 free(line);
 line = NULL;
 free(argv);
 argv = NULL;
 }
 free(line);
-return (0);
+free(argv);
+free(path);
+exit(x);
 }
