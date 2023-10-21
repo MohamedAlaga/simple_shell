@@ -19,10 +19,11 @@ i++;
 /**
 * check_env - checks env
 * @arg: argument
-* 
+* @env: environment
+*
 * Return: 1 if env, 0 of not
 */
-int check_env(char *arg, char ** env)
+int check_env(char *arg, char **env)
 {
 if (!strcmp(arg, "env"))
 {
