@@ -18,18 +18,19 @@ check_interact();
 while (1)
 {
 len = getline(&line, &buffer_size, stdin);
-if(check_fail(len))
+if (check_fail(len))
 break;
 line[len - 1] = '\0';
 if (strlen(line) == 0)
 {
 check_interact();
 continue;
-}    
+}
 argv = tokenize(line);
 if (argv[0] == NULL)
 break;
-if (check_env(argv[0], env)) {
+if (check_env(argv[0], env))
+{
 free(argv);
 check_interact();
 continue;
