@@ -6,7 +6,8 @@
  * @env: environment variables
  * Return: 0 on success
  */
-int main(int ac, char **av, char **env) {
+int main(int ac, char **av, char **env)
+{
 size_t buffer_size = MAX_SIZE;
 ssize_t len = 0, x = 0;
 char *line = NULL, **argv = NULL,
@@ -14,7 +15,8 @@ char *line = NULL, **argv = NULL,
 
 (void)ac;
 check_interact();
-while (1) {
+while (1)
+{
 len = getline(&line, &buffer_size, stdin);
 if(check_fail(len))
 break;
@@ -37,13 +39,8 @@ break;
 free(path);
 path = strdup(plhold);
 x = execute(argv, path, av);
-free(line);
-line = NULL;
-free(argv);
-argv = NULL;
+free(line), line = NULL, free(argv), argv = NULL;
 }
-free(line);
-free(argv);
-free(path);
+free(line), free(argv), free(path);
 exit(x);
 }
