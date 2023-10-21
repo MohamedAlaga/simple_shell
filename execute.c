@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
  * execute - execute external program
- * @str: string to be executed
- * @argv: array of arguments
- * @env: array of environment variables
+ * @line: string to be executed
+ * @path: path
  * @av: array of arguments
+ *
  * Return: void
  */
 int execute(char **line, char *path, char **av)
@@ -17,7 +17,7 @@ while (tok != NULL)
 {
 sprintf(final_cmd, "%s%s%s", strchr(line[0], '/') == NULL ? tok : "",
 strchr(line[0], '/') == NULL ? "/" : "", line[0]);
-if (access(final_cmd, X_OK) == 0) 
+if (access(final_cmd, X_OK) == 0)
 {
 childpid = fork();
 if (childpid < 0)
