@@ -31,7 +31,6 @@ if (argv[0] == NULL)
 break;
 if (check_env(argv[0], env))
 {
-free(argv);
 check_interact();
 continue;
 }
