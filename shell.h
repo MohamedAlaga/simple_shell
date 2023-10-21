@@ -17,7 +17,7 @@ char **tokenize(char *str);
 void mult_strcat(char *str, char *str1);
 int execute(char **line, char *path, char **av);
 void print_env(char **env);
-int check_env(char *arg, char ** env);
+int check_env(char *arg, char **env);
 int check_fail(ssize_t len);
 
 #endif
