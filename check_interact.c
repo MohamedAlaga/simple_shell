@@ -23,7 +23,7 @@ if (len <= 0)
 {
 if (isatty(STDIN_FILENO))
 printf("$ ");
-return (1);  
+return (1);
 }
 return (0);
 }
